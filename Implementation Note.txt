@@ -1,0 +1,14 @@
+Implementation Note for Linear Regression
+
+1. to implement simultaneous update for theta, an additional variable is needed to store the temporary theta 
+2. in implementation of feature normalization (for gradient descent), the value of sigma and mu need to be stored for future feature normalization of test data
+3. first feature scaling, then add x0 column to the normalized data
+4. gradient descent needs feature scaling but normal equation doesn’t; applying feature scaling to normal equation will cause a big difference in the result 
+4. to choose learning rate, run gradient descent a small number of iterations given different alpha, plot (J(theta), # of iterations) graph for different alphas in the same figure. you need to notice the best one alpha as well as the number of iterations J(theta) close to convergence, so that after this step, you can set your alpha and # of iterations value; also, even though in this step, you just need a small number of iterations to compare different alphas, it need to be large enough so you can tell J(theta) works properly as well as rough value of the # of iterations 
+5. if you execute gradient descent for several times in iteration (like when you choosing learning rate alpha), you may need to reset the value of theta, or the second iteration will be passed the theta value got from last gradient descent
+
+
+Implementation of logistic regression 
+1. Do not regularize theta(0) or theta(1) (in matlab)
+a. theta(0) and other elements have different gradient calculation
+b. ALSO! when computing cost function J, get rid of theta(0) in the regularization objective function 
