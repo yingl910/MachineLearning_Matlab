@@ -1,6 +1,6 @@
-###index starts from 1
+index starts from 1
 
-Basic 
+BASIC 
 
 % comment
 == equal
@@ -10,7 +10,7 @@ Basic
 ps1('>> ') change the prompt
 True 1; False 0
 
-Variable
+VARIABLE
 
 ; surpress output
 disp() print out values
@@ -18,7 +18,7 @@ a=pi
 disp(sprintf('2 decimals: %0.2f',a)) -> output: 2 decimals: 3.14 
 format long/short
 
-Generate Matrix
+GENERATE MATRIX
 
 A=[1 2;3 4;5 6]
 A= [1 2;
@@ -43,7 +43,7 @@ size(A,1) -> 3  %first element of size(A) matrix
 length(A) -> 3 (longer dimension)
 usually we apply length to vectors
 
-Load Data
+LOAD DATA
 
 load price.dat
 load('price.dat') 
@@ -102,7 +102,7 @@ sum(sum(A.*flipud(eye(9)))) %sum another diagonal
 
 pinv(A) %pseudo inverse
 
-Plot Data 
+PLOT DATA
 
 t = [0:0.01:0.98];
 y1 = sin(2*pi*4*t);
@@ -155,4 +155,3 @@ function [y1,y2] = squareAndCubeThisNumber(x)
 y1 = x^2;
 y2 = x^3;
 
-Vectorization 
