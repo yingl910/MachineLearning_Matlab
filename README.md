@@ -18,8 +18,8 @@ Feedforward Propagation, Backpropagation, Gradient checking
 These codes are *Programming Assignments* for Stanford Machine Learning course(online) by Dr. Andrew Ng. 
 
 All code here are correct submissions and there are two additional notes:
-1. Implementation Note: some points that went wrong when i implemented these algorithms and i think you should pay attention to
-2. Matlab Tutorial: notes taken from matlab tutorial videos, enough for implementing all these algorithms 
+>Implementation Note: some points that went wrong when i implemented these algorithms and i think you should pay attention to
+>Matlab Tutorial: notes taken from matlab tutorial videos, enough for implementing all these algorithms 
 
 I really have lots of fun in this course as well as implementing these algorithms. I havn't finished all yet and i'll keep updating!
 
