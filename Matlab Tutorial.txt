@@ -1,0 +1,158 @@
+###index starts from 1
+
+Basic 
+
+% comment
+== equal
+~= not equal
+&& and 
+|| or
+ps1('>> ') change the prompt
+True 1; False 0
+
+Variable
+
+; surpress output
+disp() print out values
+a=pi
+disp(sprintf('2 decimals: %0.2f',a)) -> output: 2 decimals: 3.14 
+format long/short
+
+Generate Matrix
+
+A=[1 2;3 4;5 6]
+A= [1 2;
+3 4;
+5 6] %same way
+
+v = 1(start):0.1(increment):2(end) -> output: 11 dimension vector : 1.0000 1.1000.....2.0000
+v = 1:6 -> v = 1 2 3 4 5 6
+
+ones(2,3) %2 by 3 matrix of one 
+zeros(1,3) %1 by 3 matrix of zero
+
+w = rand(1,3) %1 by 3 matrix of all random numbers drawn from the uniform distribution between zero and one
+w = randn(1,3) %1 by 3 matrix where three values drawn from a Gaussian distribution with mean zero and variance or standard deviation equal to one
+
+eye() %identity matrix
+help eye 
+
+size(A) -> 3(row) 2(column) %size(A) itself is 1 by 2 matrix
+size(A,1) -> 3  %first element of size(A) matrix
+
+length(A) -> 3 (longer dimension)
+usually we apply length to vectors
+
+Load Data
+
+load price.dat
+load('price.dat') 
+
+who %show variables
+whos %show variable + size 
+
+clear A %get rid of a variable
+
+v = A(1:10) %v is the first ten element of A
+save hello.mat v (binary)
+save hello.txt v -ascii %save as text
+
+A(3,2) -> 6 %element in the 3rd row 2nd column
+A(2,:)  %':' means every element along that row/column %all elements in 2nd row
+A([1 3],:) %everything in 1st and 3rd row
+A(:,2) = [10;11;12] %assignment of 2nd column 
+A = [A,[100;102;103]] %append another column vector to right
+A(:) %put all elements of A into a singel vector
+
+C = [A B] %concatenate A and B (A left B right); same to [A,B]
+C = [A;B] %A top B bottom
+
+A * C
+A .* B %elementwise
+-v 
+v + ones(length(v),1)
+v + 1 %same as above
+
+A' %transpose 
+
+val = max(a) ->15 %max value of a; a is a vector
+[val,ind] = max(a) -> val = 15 ind = 2 (index) %max value and its index
+max(A)-> 5 6 %A is matrix
+
+a<3 %elementwise comparison ->1 0 1 1 (return true or false)
+find(a<3) -> 1 3 4 %index 
+
+magic() %generate magic square
+
+[r,c] = find(A>=7) %r is a vector of row values of corresponding result while c is a vector of column values; so r[i],c[i] is the element in A that >=7
+
+sum(a)
+prod(a)
+floor(a) %round down
+ceil(a) %round up
+
+max(A,[],1) %column max
+max(A,[],2) %row max
+max(A) %default column max
+max(max(A)) %entire matrix max
+sum(A,1) %sum column
+sum(A,2) %sum row
+sum(sum(A.*eye(9))) %sum diagonal
+sum(sum(A.*flipud(eye(9)))) %sum another diagonal
+
+pinv(A) %pseudo inverse
+
+Plot Data 
+
+t = [0:0.01:0.98];
+y1 = sin(2*pi*4*t);
+y2 = cos(2*pi*4*t);
+
+plot(t,y1);
+hold on; %print two figures in one graph
+plot(t,y2,'r');
+xlabel('');
+ylabel('')
+legend('sin','cos')
+title('my plot')
+cd 'C:\..'; print -dpng 'myplot.png'
+close %clear plot
+figure(1);plot(t,y1); %number the plot
+figure(2);plot(t,y2);
+
+subplot(1,2,1); %divide plot a 1*2 grid, access first element
+plot(t,y1);
+subplot(1,2,2); %divide plot a 1*2 grid, access second element
+plot(t,y2);
+axis([0.5 1 -1 1])
+
+clf %clear figure
+
+A = magic(5)
+imagesc(A) %visualize matrix
+imagesc(A),colorbar,colormap gray; %three comments at the same time:comma chaining
+
+for i = 1:10,
+	v(i) = 2^i;
+end;
+
+i = 1;
+while i<=5,
+v(i) = 100;
+i = i+5;
+end;
+
+%function file .m
+
+function y = squareThisNumber(x)
+y = x^2
+
+%search path
+addpath('C:\...')
+
+%function returns multiple values
+function [y1,y2] = squareAndCubeThisNumber(x)
+y1 = x^2;
+y2 = x^3;
+
+Vectorization 

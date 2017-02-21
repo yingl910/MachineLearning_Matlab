@@ -1,0 +1,34 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf600
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;\csgray\c100000;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Implementation Note for Linear Regression\
+\
+1. to implement simultaneous update for theta, an additional variable is needed to store the temporary theta \
+2. in implementation of feature normalization (for gradient descent), the value of sigma and mu need to be stored for future feature normalization of test data\
+3. first feature scaling, then add x0 column to the normalized data\
+4. gradient descent needs feature scaling but normal equation doesn\'92t; applying feature scaling to normal equation will cause a big difference in the result \
+4. to choose learning rate, run gradient descent a small number of iterations given different alpha, plot (J(theta), # of iterations) graph for different alphas in the same figure. you need to notice the best one alpha as well as the number of iterations J(theta) close to convergence, so that after this step, you can set your alpha and # of iterations value; also, even though in this step, you just need a small number of iterations to compare different alphas, it need to be large enough so you can tell J(theta) works properly as well as rough value of the # of iterations \
+5. if you execute gradient descent for several times in iteration (like when you choosing learning rate alpha), you may need to reset the value of theta, or the second iteration will be passed the theta value got from last gradient descent\
+\
+Q:\
+1. the reason for the 2nd point above\
+2. assign legend and color for different plots \
+3. theoretically, in gradient descent, you never have the idea of when achieving local optima, what you can so is plotting (J(theta), # of iterations) graph and see when it closes to convergence. right?\
+4. before the task, you first initialize data, when outliers might be there. Do you immediately do sth. to those potential outliers? or you\'92ll just use all data for your first model. When is a appropriate time dealing with outliers? Does first model always more likely to contain all data? what are you basically processing in the preprocessing step?\
+5. in Matlab, is the return variable a local or global variable?\
+\
+Implementation of logistic regression \
+1. Do not regularize theta(0) or theta(1) (in matlab)\
+a. theta(0) and other elements have different gradient calculation\
+b. ALSO! when computing cost function J, get rid of theta(0) in the regularization objective function \
+\
+Q: \
+1. does logistic regression can just be applied to linear separable data set?\
+2. still not clear how regularization work in gradient and cost function \
+\
+Implementation of neural network:\
+Q: is there a vectorization way to do it?}
